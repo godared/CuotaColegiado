@@ -85,7 +85,7 @@ public class VentaServiceImp {
 		public VentaDetalle findOneVentaDetalleId(int veId){
 			return ventaDetalleDao.findOne(veId);//aqui hay que hacer un procedure
 		 }
-		public VentaDetalle findOneVentaDetalleByruId(int veId){
+		public VentaDetalle findOneVentaDetalleByVeId(int veId){
 			return ventaDetalleDao.findOne(veId);//aqui hay que hacer un procedure
 		 }
 		public void CreateVentaDetalle(VentaDetalle ventaDetalle){

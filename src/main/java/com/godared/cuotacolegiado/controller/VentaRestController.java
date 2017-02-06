@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.godared.cuotacolegiado.controller.RequestWrapper;
@@ -35,10 +36,14 @@ public class VentaRestController {
 		}
 		return ventaService.findOne(veId);
 	}
+	
 	@RequestMapping(value="/ruta/new", method=RequestMethod.GET)
 	public Venta NewVenta(){
 		return new Venta();
 	}
+	
+	@RequestMapping(value = "/venta/save", method=RequestMethod.POST)
+	@ResponseBody
 	public ResponseEntity<Boolean> save(@RequestBody RequestWrapper requestWrapper) {
 		
 		ventaService.Save(requestWrapper.getVenta(), requestWrapper.getVentaDetalle());;

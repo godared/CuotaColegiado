@@ -13,7 +13,7 @@ public interface IVentaService {
 	 void Save(Venta venta,List<VentaDetalle> ventaDetalle);
 	 //Ruta Detalle
 	 VentaDetalle findOneVentaDetalleId(int veId);
-	 VentaDetalle findOneVentaDetalleByruId(int veId);
+	 VentaDetalle findOneVentaDetalleByVeId(int veId);
 	 void CreateVentaDetalle(VentaDetalle ventaDetalle);
 	 void UpdateVentaDetalle(int veId,VentaDetalle ventaDetalle);
 	 void DeleteVentaDetalle(int veId);

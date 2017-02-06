@@ -20,10 +20,10 @@ public class VentaDetalleRestController {
 	
 	@RequestMapping(value="/ventadetalle/{veId}", method=RequestMethod.GET)
 	public VentaDetalle Get(@PathVariable("veId") int veId) {
-		VentaDetalle ventaDetalle=ventaService.findOneVentaDetalleByruId(veId);
+		VentaDetalle ventaDetalle=ventaService.findOneVentaDetalleByVeId(veId);
 		if(ventaDetalle==null)
 		{
-			throw new RestException(1,"Ruta no enccontrado"," Tramite con id:"+ veId + " No encontrado en el sistema");
+			throw new RestException(1,"Venta no enccontrado"," Venta con id:"+ veId + " No encontrado en el sistema");
 		}
 		return ventaDetalle;
 	}
