@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.godared.cuotacolegiado.controller.RequestWrapper;
 import com.godared.cuotacolegiado.RestException;
+import com.godared.cuotacolegiado.bean.Usp_S_VeGetAllVentaByMes;
 import com.godared.cuotacolegiado.bean.Venta;
 import com.godared.cuotacolegiado.service.IVentaService;
 
@@ -53,6 +54,10 @@ public class VentaRestController {
 	public ResponseEntity<Boolean> delete(@PathVariable("id") int id) {
 		ventaService.Delete(id);
 		return new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK);
+	}
+	@RequestMapping(value = "/venta/getallventabymes",params = { "id_cap"}, method=RequestMethod.GET)
+	public List<Usp_S_VeGetAllVentaByMes> GetAllVentaByMes(@PathVariable("mes") int mes) {
+		return ventaService.GetAllVentaByMes(mes);
 	}
 
 }

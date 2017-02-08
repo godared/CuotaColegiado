@@ -11,6 +11,7 @@ import javax.persistence.PersistenceUnit;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.godared.cuotacolegiado.bean.Usp_S_VeGetAllVentaByMes;
 import com.godared.cuotacolegiado.bean.Venta;
 import com.godared.cuotacolegiado.bean.VentaDetalle;
 import com.godared.cuotacolegiado.dao.IVentaDao;
@@ -81,27 +82,31 @@ public class VentaServiceImp {
 			entityManager.close();
 		}
 	}
-	 //Ruta Detalle
-		public VentaDetalle findOneVentaDetalleId(int veId){
-			return ventaDetalleDao.findOne(veId);//aqui hay que hacer un procedure
-		 }
-		public VentaDetalle findOneVentaDetalleByVeId(int veId){
-			return ventaDetalleDao.findOne(veId);//aqui hay que hacer un procedure
-		 }
-		public void CreateVentaDetalle(VentaDetalle ventaDetalle){
-			 this.ventaDetalleDao.create(ventaDetalle);
-		 }
-		public void UpdateVentaDetalle(int veId,VentaDetalle ventaDetalle){
-			VentaDetalle _ventaDetalle=new VentaDetalle();
-			_ventaDetalle=findOneVentaDetalleId(veId);
-			_ventaDetalle.setVeDeCantidad(ventaDetalle.getVeDeCantidad());
-			_ventaDetalle.setVeDePrecioUnitario(ventaDetalle.getVeDePrecioUnitario());
-			_ventaDetalle.setItId(ventaDetalle.getItId());
-			_ventaDetalle.setUsId(ventaDetalle.getUsId());
-			_ventaDetalle.setUsFechaReg(ventaDetalle.getUsFechaReg());
-			this.ventaDetalleDao.update(_ventaDetalle);	
-		 }
-		 public void DeleteRutaDetalle(int ruId){
-			 this.ventaDetalleDao.deleteById(ruId);
-		 }
+	@SuppressWarnings("unchecked")
+	List<Usp_S_VeGetAllVentaByMes> GetAllVentaByMes(int mes){		
+		return ventaDao.GetAllVentaByMes(mes);
+	}
+	//Ruta Detalle
+	public VentaDetalle findOneVentaDetalleId(int veId){
+		return ventaDetalleDao.findOne(veId);//aqui hay que hacer un procedure
+	 }
+	public VentaDetalle findOneVentaDetalleByVeId(int veId){
+		return ventaDetalleDao.findOne(veId);//aqui hay que hacer un procedure
+	 }
+	public void CreateVentaDetalle(VentaDetalle ventaDetalle){
+		 this.ventaDetalleDao.create(ventaDetalle);
+	 }
+	public void UpdateVentaDetalle(int veId,VentaDetalle ventaDetalle){
+		VentaDetalle _ventaDetalle=new VentaDetalle();
+		_ventaDetalle=findOneVentaDetalleId(veId);
+		_ventaDetalle.setVeDeCantidad(ventaDetalle.getVeDeCantidad());
+		_ventaDetalle.setVeDePrecioUnitario(ventaDetalle.getVeDePrecioUnitario());
+		_ventaDetalle.setItId(ventaDetalle.getItId());
+		_ventaDetalle.setUsId(ventaDetalle.getUsId());
+		_ventaDetalle.setUsFechaReg(ventaDetalle.getUsFechaReg());
+		this.ventaDetalleDao.update(_ventaDetalle);	
+	 }
+	 public void DeleteRutaDetalle(int ruId){
+		 this.ventaDetalleDao.deleteById(ruId);
+	 }
 }
