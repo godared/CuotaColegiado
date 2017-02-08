@@ -20,7 +20,7 @@
 	
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		<property name="packagesToScan" value="com.godared.controlbus.bean"/>
+		<property name="packagesToScan" value="com.godared.cuotacolegiado.bean"/>
 		<property name="persistenceProviderClass" value="org.hibernate.jpa.HibernatePersistenceProvider"/>
 		<property name="jpaPropertyMap">
 			<map>
@@ -35,9 +35,9 @@
 		
 		
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://mysql:3306/ControlBus"/> <!-- value="jdbc:mysql://127.0.0.1:3306/tramite"/ ronaldmam este usario se creoen openshift tambien -->
-		<property name="username" value="user8TL" />	 		
-		<property name="password" value="lCxEe8W6NvNp7lW2" />
+		<property name="url" value="jdbc:mysql://mysql:3306/CuotaColegiado"/> <!-- value="jdbc:mysql://127.0.0.1:3306/tramite"/ ronaldmam este usario se creoen openshift tambien -->
+		<property name="username" value="userDFO" />	 		
+		<property name="password" value="WmFEbyXuieCAJEK6" />
 		
 		<!--		
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -49,12 +49,12 @@
 	</bean>
 	 
 	 
-	<bean id="rutaService" class="com.godared.controlbus.service.RutaServiceImp">
-	    <property name="rutaDao" ref="rutaDao"/>
-	           
+	<bean id="ventaService" class="com.godared.cuotacolegiado.service.VentaServiceImp">
+	    <property name="ventaDao" ref="ventaDao"/>
+	    <property name="ventaDetalleDao" ref="ventaDetalleDao"/>       
 	 </bean> 
-	<bean id="rutaDao" class="com.godared.controlbus.dao.RutaDaoImp"/>
-	
+	<bean id="ventaDao" class="com.godared.cuotacolegiado.dao.VentaDaoImp"/>
+	<bean id="ventaDetalleDao" class="com.godared.cuotacolegiado.dao.VentaDetalleDaoImp"/>
 		
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 	      <property name="entityManagerFactory" ref="entityManagerFactory" />
