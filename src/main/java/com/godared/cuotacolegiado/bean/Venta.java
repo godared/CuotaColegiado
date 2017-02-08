@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import com.fasterxml.jackson.annotation.JsonProperty;
 @Entity
 public class Venta implements Serializable{
+	
 	@Id 
 	@GeneratedValue
 	private int VeId;
@@ -26,7 +27,7 @@ public class Venta implements Serializable{
 	private float VeIgv;
 	private float VeTipoCambio;
 	private float VeAnticipo;
-	private Boolean VeEstado;
+	private Boolean VeEstado=false;
 	private int MoId;
 	private int CaId;
 	private int UsId;
@@ -36,7 +37,7 @@ public class Venta implements Serializable{
 	public int getVeId() {
 		return VeId;
 	}
-	public void setVeId(int veId) {
+	public void setVeId(short veId) {
 		VeId = veId;
 	}
 	@JsonProperty("OpId")

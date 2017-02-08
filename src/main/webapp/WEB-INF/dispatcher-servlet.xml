@@ -13,7 +13,7 @@
 	http://www.springframework.org/schema/tx 
 	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
- 	<context:component-scan base-package="com.godared.controlbus" />
+ 	<context:component-scan base-package="com.godared.cuotacolegiado" />
 	<context:annotation-config />
 	<mvc:annotation-driven/>
 	<tx:annotation-driven />	
@@ -33,19 +33,20 @@
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		
-		
+		<!-- value="jdbc:mysql://127.0.0.1:3306/tramite"/ ronaldmam este usario se creoen openshift tambien -->
+		<!--
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://mysql:3306/CuotaColegiado"/> <!-- value="jdbc:mysql://127.0.0.1:3306/tramite"/ ronaldmam este usario se creoen openshift tambien -->
+		<property name="url" value="jdbc:mysql://mysql:3306/CuotaColegiado"/> 
 		<property name="username" value="userDFO" />	 		
 		<property name="password" value="WmFEbyXuieCAJEK6" />
-		
-		<!--		
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://127.0.0.1:3307/ControlBus"/>
-		<property name="username" value="root" />		
-		<property name="password" value="Pa$$w0rd" /> 		
-			
 		-->
+				
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://127.0.0.1:3307/CuotaColegiado"/>
+		<property name="username" value="userDFO" />		
+		<property name="password" value="WmFEbyXuieCAJEK6" /> 		
+			
+		
 	</bean>
 	 
 	 

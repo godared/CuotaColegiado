@@ -16,10 +16,11 @@ public class VentaDaoImp extends AbstractJpaDAO<Venta> implements IVentaDao {
 
         setClazz(Venta.class);
     }
-	 @SuppressWarnings("unchecked")
+	//
+	@SuppressWarnings("unchecked")
     public  List<Usp_S_VeGetAllVentaByMes> GetAllVentaByMes(int mes){
     	StoredProcedureQuery storedProcedure  = entityManager.createNamedStoredProcedureQuery("Usp_S_VeGetAllVentaByMes");
- 	    storedProcedure.setParameter(1,mes);
+ 	    storedProcedure.setParameter("mes",mes);
  	    return storedProcedure.getResultList();
     }
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -55,8 +56,9 @@ public class VentaRestController {
 		ventaService.Delete(id);
 		return new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK);
 	}
-	@RequestMapping(value = "/venta/getallventabymes",params = { "id_cap"}, method=RequestMethod.GET)
-	public List<Usp_S_VeGetAllVentaByMes> GetAllVentaByMes(@PathVariable("mes") int mes) {
+	//http://localhost:8080/CuotaColegiado/rest/venta/getallventabymes?mes=2
+	@RequestMapping(value = "/venta/getallventabymes",params = {"mes"}, method=RequestMethod.GET)
+	public List<Usp_S_VeGetAllVentaByMes> GetAllVentaByMes(@RequestParam("mes") int mes) {
 		return ventaService.GetAllVentaByMes(mes);
 	}
 

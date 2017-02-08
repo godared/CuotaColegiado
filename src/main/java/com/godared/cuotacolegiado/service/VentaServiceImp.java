@@ -19,20 +19,18 @@ import com.godared.cuotacolegiado.dao.IVentaDetalleDao;
 
 @Service
 @Transactional
-public class VentaServiceImp {
+public class VentaServiceImp implements IVentaService {
 	private IVentaDao ventaDao;
 	private IVentaDetalleDao ventaDetalleDao;
 	
 	@PersistenceUnit
 	private EntityManagerFactory entityManagerFactory;
 	
-	public void setRutaDao(IVentaDao ventaDao) {
-		 this.ventaDao = ventaDao;
-		 
+	public void setVentaDao(IVentaDao ventaDao) {
+		 this.ventaDao = ventaDao;		 
 	}
-	public void setRutaDetalleDao(IVentaDetalleDao ventaDetalleDao) {
-		 this.ventaDetalleDao = ventaDetalleDao;
-		 
+	public void setVentaDetalleDao(IVentaDetalleDao ventaDetalleDao) {
+		 this.ventaDetalleDao = ventaDetalleDao;		 
 	}
 	
 	public void Delete(int id){
@@ -83,8 +81,8 @@ public class VentaServiceImp {
 			entityManager.close();
 		}
 	}
-	@SuppressWarnings("unchecked")
-	List<Usp_S_VeGetAllVentaByMes> GetAllVentaByMes(int mes){		
+	//@SuppressWarnings("unchecked")
+	public List<Usp_S_VeGetAllVentaByMes> GetAllVentaByMes(int mes){		
 		return ventaDao.GetAllVentaByMes(mes);
 	}
 	//Ruta Detalle
@@ -107,7 +105,9 @@ public class VentaServiceImp {
 		_ventaDetalle.setUsFechaReg(ventaDetalle.getUsFechaReg());
 		this.ventaDetalleDao.update(_ventaDetalle);	
 	 }
-	 public void DeleteRutaDetalle(int ruId){
-		 this.ventaDetalleDao.deleteById(ruId);
-	 }
+
+	public void DeleteVentaDetalle(int veId) {
+		// TODO Auto-generated method stub
+		this.ventaDetalleDao.deleteById(veId);
+	}
 }
