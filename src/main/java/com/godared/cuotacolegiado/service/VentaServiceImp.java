@@ -25,6 +25,7 @@ public class VentaServiceImp {
 	
 	@PersistenceUnit
 	private EntityManagerFactory entityManagerFactory;
+	
 	public void setRutaDao(IVentaDao ventaDao) {
 		 this.ventaDao = ventaDao;
 		 

@@ -4,10 +4,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 @Entity
 public class VentaDetalle implements Serializable{
+	@Id
 	private int VeId;
 	private int ItId;
 	private float VeDeCantidad;
