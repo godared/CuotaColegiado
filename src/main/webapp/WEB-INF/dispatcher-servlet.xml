@@ -34,28 +34,41 @@
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		
 		<!-- value="jdbc:mysql://127.0.0.1:3306/tramite"/ ronaldmam este usario se creoen openshift tambien -->
-		
+		<!--
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
 		<property name="url" value="jdbc:mysql://mysql:3306/CuotaColegiado"/> 
 		<property name="username" value="userDFO" />	 		
 		<property name="password" value="WmFEbyXuieCAJEK6" />
-		
-		<!--		
+		-->	
+				
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
 		<property name="url" value="jdbc:mysql://127.0.0.1:3307/CuotaColegiado"/>
 		<property name="username" value="userDFO" />		
 		<property name="password" value="WmFEbyXuieCAJEK6" /> 		
-		-->	
+		
 		
 	</bean>
 	 
 	 
 	<bean id="ventaService" class="com.godared.cuotacolegiado.service.VentaServiceImp">
 	    <property name="ventaDao" ref="ventaDao"/>
-	    <property name="ventaDetalleDao" ref="ventaDetalleDao"/>       
+	    <property name="ventaDetalleDao" ref="ventaDetalleDao"/> 
+	    <property name="documentoDao" ref="documentoDao"/>   
+	    <property name="operacionDao" ref="operacionDao"/>         
 	 </bean> 
 	<bean id="ventaDao" class="com.godared.cuotacolegiado.dao.VentaDaoImp"/>
 	<bean id="ventaDetalleDao" class="com.godared.cuotacolegiado.dao.VentaDetalleDaoImp"/>
+	<bean id="documentoDao" class="com.godared.cuotacolegiado.dao.DocumentoDaoImp"/>
+	<bean id="operacionDao" class="com.godared.cuotacolegiado.dao.OperacionDaoImp"/>
+	
+	<bean id="personaService" class="com.godared.cuotacolegiado.service.PersonaServiceImp">
+	    <property name="personaDao" ref="personaDao"/>
+	    <property name="tipoPersonaDao" ref="tipoPersonaDao"/> 
+	    <property name="tipoIdentidadDao" ref="tipoIdentidadDao"/> 
+	</bean> 
+	<bean id="personaDao" class="com.godared.cuotacolegiado.dao.PersonaDaoImp"/>
+	<bean id="tipoPersonaDao" class="com.godared.cuotacolegiado.dao.TipoPersonaDaoImp"/>
+	<bean id="tipoIdentidadDao" class="com.godared.cuotacolegiado.dao.TipoIdentidadDaoImp"/>
 		
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 	      <property name="entityManagerFactory" ref="entityManagerFactory" />

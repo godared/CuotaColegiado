@@ -61,5 +61,6 @@ public class VentaRestController {
 	public List<Usp_S_VeGetAllVentaByMes> GetAllVentaByMes(@RequestParam("mes") int mes) {
 		return ventaService.GetAllVentaByMes(mes);
 	}
+	
 
 }

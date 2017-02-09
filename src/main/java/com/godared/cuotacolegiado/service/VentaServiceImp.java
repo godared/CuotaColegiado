@@ -11,9 +11,13 @@ import javax.persistence.PersistenceUnit;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.godared.cuotacolegiado.bean.Documento;
+import com.godared.cuotacolegiado.bean.Operacion;
 import com.godared.cuotacolegiado.bean.Usp_S_VeGetAllVentaByMes;
 import com.godared.cuotacolegiado.bean.Venta;
 import com.godared.cuotacolegiado.bean.VentaDetalle;
+import com.godared.cuotacolegiado.dao.IDocumentoDao;
+import com.godared.cuotacolegiado.dao.IOperacionDao;
 import com.godared.cuotacolegiado.dao.IVentaDao;
 import com.godared.cuotacolegiado.dao.IVentaDetalleDao;
 
@@ -22,7 +26,8 @@ import com.godared.cuotacolegiado.dao.IVentaDetalleDao;
 public class VentaServiceImp implements IVentaService {
 	private IVentaDao ventaDao;
 	private IVentaDetalleDao ventaDetalleDao;
-	
+	private IDocumentoDao documentoDao;
+	private IOperacionDao operacionDao;
 	@PersistenceUnit
 	private EntityManagerFactory entityManagerFactory;
 	
@@ -31,6 +36,12 @@ public class VentaServiceImp implements IVentaService {
 	}
 	public void setVentaDetalleDao(IVentaDetalleDao ventaDetalleDao) {
 		 this.ventaDetalleDao = ventaDetalleDao;		 
+	}
+	public void setDocumentoDao(IDocumentoDao documentoDao) {
+		 this.documentoDao = documentoDao;		 
+	}
+	public void setOperacionDao(IOperacionDao operacionDao) {
+		 this.operacionDao = operacionDao;		 
 	}
 	
 	public void Delete(int id){
@@ -109,5 +120,37 @@ public class VentaServiceImp implements IVentaService {
 	public void DeleteVentaDetalle(int veId) {
 		// TODO Auto-generated method stub
 		this.ventaDetalleDao.deleteById(veId);
+	}
+	//Documento
+	public List<Documento> findAllDocumento(){
+		return this.documentoDao.findAll();
+	}
+	public Documento findOneDocumento(int doId){
+		return this.documentoDao.findOne(doId);
+	}	
+	public void deleteByIdDocumento(int doId){
+		this.documentoDao.deleteById(doId);
+	}
+	public void createDocumento(Documento documento){
+		this.documentoDao.create(documento);
+	}
+	public Documento updateDocumento(Documento documento){
+		return this.documentoDao.update(documento);
+	}
+	//Operacion
+	public List<Operacion> findAllOperacion(){
+		return this.operacionDao.findAll(); 
+	 }
+	public Operacion findOneOperacion(int doId){
+		return this.operacionDao.findOne(doId);
+	}
+	public void deleteByIdOperacion(int doId){
+		this.operacionDao.deleteById(doId);
+	}
+	public void createOperacion(Operacion operacion){
+		this.operacionDao.create(operacion);
+	}
+	public Operacion updateOperacion(Operacion operacion){
+		return this.operacionDao.update(operacion);
 	}
 }
