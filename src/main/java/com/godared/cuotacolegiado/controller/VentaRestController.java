@@ -39,7 +39,7 @@ public class VentaRestController {
 		return ventaService.findOne(veId);
 	}
 	
-	@RequestMapping(value="/ruta/new", method=RequestMethod.GET)
+	@RequestMapping(value="/venta/new", method=RequestMethod.GET)
 	public Venta NewVenta(){
 		return new Venta();
 	}
