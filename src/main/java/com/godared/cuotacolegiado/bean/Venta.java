@@ -32,6 +32,9 @@ public class Venta implements Serializable{
 	private int CaId;
 	private int UsId;
 	private Date UsFechaReg;
+	private String VeTipoOpera;
+	private String VeCondicion;
+	private String VeMoneda;
 	
 	@JsonProperty("VeId")
 	public int getVeId() {
@@ -165,6 +168,27 @@ public class Venta implements Serializable{
 	}
 	public void setUsFechaReg(Date usFechaReg) {
 		UsFechaReg = usFechaReg;
+	}
+	@JsonProperty("VeTipoOpera")
+	public String getVeTipoOpera() {
+		return VeTipoOpera;
+	}
+	public void setVeTipoOpera(String veTipoOpera) {
+		VeTipoOpera = veTipoOpera;
+	}
+	@JsonProperty("VeCondicion")
+	public String getVeCondicion() {
+		return VeCondicion;
+	}
+	public void setVeCondicion(String veCondicion) {
+		VeCondicion = veCondicion;
+	}
+	@JsonProperty("VeMoneda")
+	public String getVeMoneda() {
+		return VeMoneda;
+	}
+	public void setVeMoneda(String veMoneda) {
+		VeMoneda = veMoneda;
 	}
 
 
